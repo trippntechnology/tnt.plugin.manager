@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.31911.260
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "tnt.plugin.manager", "tnt.plugin.manager\tnt.plugin.manager.csproj", "{D8D203AB-9E5E-41D3-8B80-87031B73E248}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{A510ED4B-C092-4EA1-B2EE-B9BD3F1EA555}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tnt.plugin.manager.tests", "tnt.plugin.manager.tests\tnt.plugin.manager.tests.csproj", "{1FF18DA4-4F55-4254-BBB1-E4DD881C373B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D8D203AB-9E5E-41D3-8B80-87031B73E248}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8D203AB-9E5E-41D3-8B80-87031B73E248}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8D203AB-9E5E-41D3-8B80-87031B73E248}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8D203AB-9E5E-41D3-8B80-87031B73E248}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FF18DA4-4F55-4254-BBB1-E4DD881C373B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FF18DA4-4F55-4254-BBB1-E4DD881C373B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FF18DA4-4F55-4254-BBB1-E4DD881C373B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FF18DA4-4F55-4254-BBB1-E4DD881C373B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1FF18DA4-4F55-4254-BBB1-E4DD881C373B} = {A510ED4B-C092-4EA1-B2EE-B9BD3F1EA555}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5ADEF1AE-F178-4743-A29D-35665F36D1EE}
+	EndGlobalSection
+EndGlobal
