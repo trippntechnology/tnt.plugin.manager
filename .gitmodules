@@ -1,0 +1,3 @@
+[submodule "tnt.utilities"]
+	path = tnt.utilities
+	url = https://github.com/trippntechnology/tnt.utilities.git

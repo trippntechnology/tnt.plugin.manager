@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 [assembly: System.Reflection.AssemblyDescription("Plug-in manager for Window\'s applications")]
-[assembly: System.Reflection.AssemblyInformationalVersion("1.1.0.0-2201030958")]
+[assembly: System.Reflection.AssemblyInformationalVersion("1.1.0.0-2201031023")]
 [assembly: System.Reflection.AssemblyCompany("Tripp\'n Technology, LLC.")]
 [assembly: System.Reflection.AssemblyConfiguration("Debug")]
 [assembly: System.Reflection.AssemblyProduct("TNT Plug-in Manager")]

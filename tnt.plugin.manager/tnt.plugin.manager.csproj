@@ -37,4 +37,7 @@
     <Compile Remove="Tests\Plugins\Plugin2.cs" />
     <Compile Remove="Tests\Plugins\PluginBase.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\tnt.utilities\tnt.utilities\tnt.utilities.csproj" />
+  </ItemGroup>
 </Project>
