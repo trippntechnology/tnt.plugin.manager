@@ -1,43 +1,29 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <TargetFramework>net6.0-windows</TargetFramework>
-    <OutputType>Library</OutputType>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <UseWindowsForms>true</UseWindowsForms>
-    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<UseWindowsForms>true</UseWindowsForms>
+		<Version>2.0.0</Version>
+		<Authors>Tripp'n Technology, LLC.</Authors>
+		<Copyright>Copyright 2024 $(Authors)</Copyright>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+		<Description>TNT Plug-in Manager</Description>
+		<Company>$(Authors)</Company>
+		<IncludeSymbols>True</IncludeSymbols>
+		<SymbolPackageFormat>symbols.nupkg</SymbolPackageFormat>
+		<Title>TNT Plug-in Manager</Title>
+		<DebugType>embedded</DebugType>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DocumentationFile>bin\Debug\TNT.Plugin.Manager.xml</DocumentationFile>
-  </PropertyGroup>
-  <PropertyGroup>
-    <AssemblyInfo_Title>TNT Plug-in Manager</AssemblyInfo_Title>
-    <AssemblyInfo_Description>Plug-in manager for Window's applications</AssemblyInfo_Description>
-    <AssemblyInfo_MinorVersion>1</AssemblyInfo_MinorVersion>
-  </PropertyGroup>
+
   <ItemGroup>
-    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
-    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
-    <PackageReference Include="TNT.AssemblyInfo" Version="1.4.0" />
-    <PackageReference Include="Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers" Version="0.3.261602">
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.Windows.Compatibility" Version="6.0.0" />
+    <PackageReference Include="Tnt.Utilities" Version="2.1.1" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Remove="Tests\Data\ApplicationData.cs" />
-    <Compile Remove="Tests\Data\Properties\AssemblyInfo.cs" />
-    <Compile Remove="Tests\PluginManagerTest\Form1.cs" />
-    <Compile Remove="Tests\PluginManagerTest\Form1.Designer.cs" />
-    <Compile Remove="Tests\PluginManagerTest\Program.cs" />
-    <Compile Remove="Tests\PluginManagerTest\Properties\AssemblyInfo.cs" />
-    <Compile Remove="Tests\PluginManagerTest\Properties\Resources.Designer.cs" />
-    <Compile Remove="Tests\PluginManagerTest\Properties\Settings.Designer.cs" />
-    <Compile Remove="Tests\Plugins\CheckablePlugin.cs" />
-    <Compile Remove="Tests\Plugins\Plugin1.cs" />
-    <Compile Remove="Tests\Plugins\Plugin2.cs" />
-    <Compile Remove="Tests\Plugins\PluginBase.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\tnt.utilities\tnt.utilities\tnt.utilities.csproj" />
-  </ItemGroup>
+	
+	<Target Name="DeplyNugetLocal" AfterTargets="Pack" Condition="$(Configuration) == 'Release'">
+		<Exec Command="copy $(ProjectDir)bin\$(Configuration)\$(ProjectName).$(PackageVersion).nupkg D:\NugetRepo" />
+	</Target>
+
 </Project>
