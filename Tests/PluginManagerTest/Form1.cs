@@ -14,7 +14,7 @@ namespace PluginManagerTest
 
 			//_Manager = new Manager(Controls, pluginOnClick, onMouseEnter);
 			_Manager = new Manager(Controls, pluginOnClick, onToolTipChanged);
-			_Manager.Register(@"D:\Steve\gitrepos\tnt.libraries\TNT.Plugin.Manager\Tests\Plugins\bin\Debug");
+			_Manager.Register(@"D:\Steve\gitrepos\tnt.plugin.manager\Tests\Plugins\bin\Debug\net8.0-windows");
 		}
 
 		private void onToolTipChanged(string hint)

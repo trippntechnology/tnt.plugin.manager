@@ -8,6 +8,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\accept.png" />
+    <None Remove="Images\application_put.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Images\accept.png" />
+    <EmbeddedResource Include="Images\application_put.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\tnt.plugin.manager\tnt.plugin.manager.csproj" />
     <ProjectReference Include="..\Data\Data.csproj" />
   </ItemGroup>
