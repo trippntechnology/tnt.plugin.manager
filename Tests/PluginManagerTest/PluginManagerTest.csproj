@@ -9,7 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\tnt.plugin.manager\tnt.plugin.manager.csproj" />
     <ProjectReference Include="..\Data\Data.csproj" />
     <ProjectReference Include="..\Plugins\Plugins.csproj" />
   </ItemGroup>

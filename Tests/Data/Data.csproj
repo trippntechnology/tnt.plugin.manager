@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\tnt.plugin.manager\tnt.plugin.manager.csproj" />
+    <ProjectReference Include="..\..\TNT.Plugin.Manager\TNT.Plugin.Manager.csproj" />
   </ItemGroup>
 
 </Project>

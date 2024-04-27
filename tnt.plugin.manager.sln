@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.31911.260
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tnt.plugin.manager", "tnt.plugin.manager\tnt.plugin.manager.csproj", "{293FB2DC-037E-404F-A4E4-52FE6EB1E0C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TNT.Plugin.Manager", "TNT.Plugin.Manager\TNT.Plugin.Manager.csproj", "{293FB2DC-037E-404F-A4E4-52FE6EB1E0C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugins", "Tests\Plugins\Plugins.csproj", "{6F1B7357-4D51-455C-91FC-4E9D95DAF5B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Plugins", "Tests\Plugins\Plugins.csproj", "{6F1B7357-4D51-455C-91FC-4E9D95DAF5B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Tests\Data\Data.csproj", "{9D5C2D81-06A0-4835-B76C-43DB2C9E5245}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Tests\Data\Data.csproj", "{9D5C2D81-06A0-4835-B76C-43DB2C9E5245}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginManagerTest", "Tests\PluginManagerTest\PluginManagerTest.csproj", "{3B3EF987-26DD-49FF-8933-13914DB32689}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PluginManagerTest", "Tests\PluginManagerTest\PluginManagerTest.csproj", "{3B3EF987-26DD-49FF-8933-13914DB32689}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{51926B11-0FEC-4306-8F0B-A37DC8BDE4B5}"
 EndProject

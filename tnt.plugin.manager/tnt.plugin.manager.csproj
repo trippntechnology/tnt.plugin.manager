@@ -18,12 +18,12 @@
 		<DebugType>embedded</DebugType>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Tnt.Utilities" Version="2.1.1" />
-  </ItemGroup>
-	
+	<ItemGroup>
+		<PackageReference Include="TNT.Utilities" Version="2.1.1" />
+	</ItemGroup>
+
 	<Target Name="DeplyNugetLocal" AfterTargets="Pack" Condition="$(Configuration) == 'Release'">
 		<Exec Command="copy $(ProjectDir)bin\$(Configuration)\$(ProjectName).$(PackageVersion).nupkg D:\NugetRepo" />
 	</Target>
-
+	
 </Project>
