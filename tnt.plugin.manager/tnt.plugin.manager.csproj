@@ -1,25 +1,31 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net9.0-windows</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-		<UseWindowsForms>true</UseWindowsForms>
-		<Version>2.0.1</Version>
 		<Authors>Tripp'n Technology, LLC.</Authors>
-		<Copyright>Copyright 2024 $(Authors)</Copyright>
-		<GenerateDocumentationFile>True</GenerateDocumentationFile>
-		<Description>TNT Plug-in Manager</Description>
 		<Company>$(Authors)</Company>
-		<IncludeSymbols>True</IncludeSymbols>
-		<SymbolPackageFormat>symbols.nupkg</SymbolPackageFormat>
-		<Title>TNT Plug-in Manager</Title>
+		<ContinuousIntegrationBuild>True</ContinuousIntegrationBuild>
+		<Copyright>Copyright 2024 $(Authors)</Copyright>
 		<DebugType>embedded</DebugType>
-  </PropertyGroup>
+		<Description>TNT Plug-in Manager</Description>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <ImplicitUsings>enable</ImplicitUsings>
+		<IncludeSymbols>False</IncludeSymbols>
+    <Nullable>enable</Nullable>
+		<PackageReadmeFile>readme.md</PackageReadmeFile>
+		<SymbolPackageFormat>symbols.nupkg</SymbolPackageFormat>
+    <TargetFramework>net9.0-windows</TargetFramework>
+		<Title>TNT Plug-in Manager</Title>
+		<UseWindowsForms>true</UseWindowsForms>
+		<Version>2.0.2</Version>
+	</PropertyGroup>
 
 	<ItemGroup>
 		<PackageReference Include="TNT.Utilities" Version="2.1.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="docs\readme.md" Pack="true" PackagePath="\" />
 	</ItemGroup>
 
 	<Target Name="DeplyNugetLocal" AfterTargets="Pack" Condition="$(Configuration) == 'Release'">
