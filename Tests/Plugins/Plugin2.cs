@@ -15,15 +15,9 @@ namespace Plugins
 
 		public override string ToolTipText => "Tool tip for plugin2";
 
-		public override Image Image
-		{
-			get
-			{
-				return base.GetImage("Plugins.Images.application_put.png");
-			}
-		}
+    public override Image? Image => base.GetImage("Plugins.Images.application_put.png");
 
-		public override MenuStrip GetMenuStrip()
+    public override MenuStrip GetMenuStrip()
 		{
 			MenuStrip menuStrip = new MenuStrip();
 			ToolStripMenuItem menu = new ToolStripMenuItem("&File");
@@ -95,7 +89,7 @@ namespace Plugins
 			return toolStrip;
 		}
 
-		private void OnOneClick(object sender, EventArgs e)
+		private void OnOneClick(object? sender, EventArgs e)
 		{
 			MessageBox.Show("OneClicked");
 		}

@@ -23,9 +23,11 @@ public abstract class Plugin
   {
     _ToolStripItems.ForEach(t =>
     {
-      if (t is ToolStripSplitButton)
+      ToolStripSplitButton? button = t as ToolStripSplitButton;
+
+      if (button != null)
       {
-        (t as ToolStripSplitButton).ButtonClick += onClick;
+        button.ButtonClick += onClick;
       }
       else
       {
@@ -39,7 +41,7 @@ public abstract class Plugin
   /// </summary>
   /// <typeparam name="T">Type of <see cref="ToolStripItem"/> to create</typeparam>
   /// <returns></returns>
-  protected ToolStripItem CreateToolStripItem<T>(string text = "", Image image = null, string toolTipText = "") where T : ToolStripItem, new()
+  protected ToolStripItem CreateToolStripItem<T>(string text = "", Image? image = null, string toolTipText = "") where T : ToolStripItem, new()
   {
     ToolStripItem item = new T();
 
@@ -61,7 +63,7 @@ public abstract class Plugin
   /// </summary>
   /// <param name="sender"><see cref="ToolStripItem"/></param>
   /// <param name="e">Unused</param>
-  protected void Item_MouseLeave(object sender, EventArgs e)
+  protected void Item_MouseLeave(object? sender, EventArgs e)
   {
     if (this.OnToolTipChanged != null)
     {
@@ -74,12 +76,15 @@ public abstract class Plugin
   /// </summary>
   /// <param name="sender"><see cref="ToolStripItem"/></param>
   /// <param name="e">Unused</param>
-  protected void Item_MouseEnter(object sender, EventArgs e)
+  protected void Item_MouseEnter(object? sender, EventArgs e)
   {
     if (this.OnToolTipChanged != null)
     {
-      ToolStripItem item = sender as ToolStripItem;
-      this.OnToolTipChanged(item.ToolTipText);
+      var toolTipText = (sender as ToolStripItem)?.ToolTipText;
+      if (toolTipText != null)
+      {
+        this.OnToolTipChanged(toolTipText);
+      }
     }
   }
 
@@ -106,7 +111,7 @@ public abstract class Plugin
   /// <summary>
   /// Image that should be displayed by the plug-in
   /// </summary>
-  public abstract Image Image { get; }
+  public abstract Image? Image { get; }
 
   /// <summary>
   /// Override when this plug-in requires a license to execute
@@ -124,7 +129,7 @@ public abstract class Plugin
   /// <summary>
   /// Set to capture event for when the tool tip changes
   /// </summary>
-  public ToolTipChangedEventHandler OnToolTipChanged { get; set; }
+  public ToolTipChangedEventHandler OnToolTipChanged { get; set; } = (hint) => { };
 
   /// <summary>
   /// Call to only execute if <paramref name="hasLicense"/> is true. If a license is not applicable, the caller only need
@@ -150,7 +155,7 @@ public abstract class Plugin
   /// Implement to generate a <see cref="MenuStrip"/> that can be merged with the calling application
   /// </summary>
   /// <returns><see cref="MenuStrip"/></returns>
-  public abstract MenuStrip GetMenuStrip();
+  public abstract MenuStrip? GetMenuStrip();
 
   /// <summary>
   /// Implement to generate a <see cref="ToolStrip"/> that can be merged with the calling application
@@ -163,15 +168,15 @@ public abstract class Plugin
   /// </summary>
   /// <param name="resource">Embedded resource file containing the image</param>
   /// <returns><see cref="Image"/> represented by <paramref name="resource"/></returns>
-  protected Image GetImage(string resource)
+  protected Image? GetImage(string resource)
   {
-    Bitmap bitmap = null;
+    Bitmap? bitmap = null;
 
     if (!string.IsNullOrEmpty(resource))
     {
-      System.Reflection.Assembly myAssembly = System.Reflection.Assembly.GetAssembly(this.GetType());
-      Stream myStream = myAssembly.GetManifestResourceStream(resource);
-      bitmap = new Bitmap(myStream);
+      System.Reflection.Assembly? myAssembly = System.Reflection.Assembly.GetAssembly(this.GetType());
+      Stream? myStream = myAssembly?.GetManifestResourceStream(resource);
+      if (myStream != null) bitmap = new Bitmap(myStream);
     }
 
     return bitmap;

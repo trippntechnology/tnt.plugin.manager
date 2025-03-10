@@ -13,9 +13,9 @@ public static class Extensions
   /// <param name="collection">Collection of <see cref="ToolStripItem"/> to search</param>
   /// <param name="name"><see cref="ToolStripItem.Name"/> or <see cref="ToolStripItem.Text"/></param>
   /// <returns><see cref="ToolStripMenuItem"/> if found, null otherwise</returns>
-  public static ToolStripMenuItem FindItem(this ToolStripItemCollection collection, string name)
+  public static ToolStripMenuItem? FindItem(this ToolStripItemCollection collection, string name)
   {
-    var found = (from ToolStripItem i in collection where i.Name == name || i.Text == name select i as ToolStripMenuItem).SingleOrDefault();
+    ToolStripMenuItem? found = (from ToolStripItem i in collection where i.Name == name || i.Text == name select i as ToolStripMenuItem).SingleOrDefault();
 
     if (found == null)
     {
@@ -36,10 +36,10 @@ public static class Extensions
   /// <param name="controls">Collection of controls to search</param>
   /// <param name="name">Name of the <see cref="MenuStrip"/></param>
   /// <returns><see cref="MenuStrip"/> if found, null otherwise</returns>
-  public static MenuStrip GetMenuStrip(this ControlCollection controls, string name)
+  public static MenuStrip? GetMenuStrip(this ControlCollection controls, string name)
   {
     if (string.IsNullOrEmpty(name)) return null;
-    return (MenuStrip)controls.Find(name, true).FirstOrDefault();
+    return (MenuStrip?)controls.Find(name, true).FirstOrDefault();
   }
 
   /// <summary>
@@ -48,9 +48,9 @@ public static class Extensions
   /// <param name="controls">Collection of controls to search</param>
   /// <param name="name">Name of the <see cref="ToolStrip"/></param>
   /// <returns><see cref="ToolStrip"/> if found, null otherwise</returns>
-  public static ToolStrip GetToolStrip(this ControlCollection controls, string name)
+  public static ToolStrip? GetToolStrip(this ControlCollection controls, string name)
   {
     if (string.IsNullOrEmpty(name)) return null;
-    return (ToolStrip)controls.Find(name, true).FirstOrDefault();
+    return (ToolStrip?)controls.Find(name, true).FirstOrDefault();
   }
 }

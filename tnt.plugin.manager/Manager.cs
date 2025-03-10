@@ -1,4 +1,5 @@
-﻿using static System.Windows.Forms.Control;
+﻿using System.Reflection;
+using static System.Windows.Forms.Control;
 
 namespace TNT.Plugin.Manager;
 
@@ -21,7 +22,7 @@ public class Manager
   /// <summary>
   /// Application's controls
   /// </summary>
-  private ControlCollection _Controls = null;
+  private ControlCollection? _Controls = null;
 
   /// <summary>
   /// Event that is fired when a hint is changed
@@ -84,14 +85,16 @@ public class Manager
 
     foreach (string file in files)
     {
-      var types = Utilities.Utilities.GetTypes(file, t =>
+      var assembly = Assembly.LoadFrom(file);
+      var types = Utilities.Utilities.GetTypes(assembly, t =>
       {
         return HasBaseType(t, typeof(Plugin)) && !t.IsAbstract;
       });
 
       foreach (Type type in types)
       {
-        var plugin = (Plugin)Activator.CreateInstance(type);
+        var plugin = (Plugin?)Activator.CreateInstance(type);
+        if (plugin == null) continue;
         plugin._Manager = this;
         _Plugins.Add(plugin);
         MergePlugin(plugin);
@@ -104,7 +107,7 @@ public class Manager
   /// </summary>
   /// <param name="filter">Filter that can be applied to the results</param>
   /// <returns>A <see cref="List{Plugin}"/> managed by this <see cref="Manager"/></returns>
-  public List<Plugin> GetPlugins(Func<Plugin, bool> filter = null)
+  public List<Plugin> GetPlugins(Func<Plugin, bool>? filter = null)
   {
     if (filter == null) filter = (_) => { return true; };
     return (from p in _Plugins where filter(p) select p).ToList();
@@ -116,11 +119,11 @@ public class Manager
   /// <param name="menuStripName">Name of <see cref="MenuStrip"/> to search</param>
   /// <param name="name">Name of <see cref="ToolStripMenuItem"/> to search for</param>
   /// <returns><see cref="ToolStripMenuItem"/> if found, null otherwise</returns>
-  public ToolStripMenuItem FindToolStripMenuItem(string menuStripName, string name)
+  public ToolStripMenuItem? FindToolStripMenuItem(string menuStripName, string name)
   {
-    if (string.IsNullOrEmpty(name)) return null;
+    if (string.IsNullOrEmpty(name) || _Controls == null) return null;
     var menuStrip = _Controls.GetMenuStrip(menuStripName);
-    return menuStrip.Items.FindItem(name);
+    return menuStrip?.Items.FindItem(name);
   }
 
   /// <summary>
@@ -129,9 +132,9 @@ public class Manager
   /// <param name="plugin"><see cref="Plugin"/> to register with the <see cref="Manager"/></param>
   private void MergePlugin(Plugin plugin)
   {
-    ToolStrip appMenuStrip = _Controls.GetMenuStrip(plugin.MenuStripName);
-    ToolStrip appToolStrip = _Controls.GetToolStrip(plugin.ToolStripName);
-    MenuStrip ms = plugin.GetMenuStrip();
+    ToolStrip? appMenuStrip = _Controls?.GetMenuStrip(plugin.MenuStripName);
+    ToolStrip? appToolStrip = _Controls?.GetToolStrip(plugin.ToolStripName);
+    MenuStrip? ms = plugin.GetMenuStrip();
     ToolStrip ts = plugin.GetToolStrip();
 
     plugin.SetOnClickEvent(_OnClick);
