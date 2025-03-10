@@ -4,7 +4,7 @@
 		<Authors>Tripp'n Technology, LLC.</Authors>
 		<Company>$(Authors)</Company>
 		<ContinuousIntegrationBuild>True</ContinuousIntegrationBuild>
-		<Copyright>Copyright 2024 $(Authors)</Copyright>
+		<Copyright>Copyright 2025 $(Authors)</Copyright>
 		<DebugType>embedded</DebugType>
 		<Description>TNT Plug-in Manager</Description>
 		<GenerateDocumentationFile>True</GenerateDocumentationFile>
