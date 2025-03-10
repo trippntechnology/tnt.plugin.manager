@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PluginManagerTest", "Tests\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{51926B11-0FEC-4306-8F0B-A37DC8BDE4B5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NUnitTests", "NUnitTests\NUnitTests.csproj", "{03F85A23-AD68-483D-A852-77B8B036C5E5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{3B3EF987-26DD-49FF-8933-13914DB32689}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B3EF987-26DD-49FF-8933-13914DB32689}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B3EF987-26DD-49FF-8933-13914DB32689}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03F85A23-AD68-483D-A852-77B8B036C5E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03F85A23-AD68-483D-A852-77B8B036C5E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03F85A23-AD68-483D-A852-77B8B036C5E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03F85A23-AD68-483D-A852-77B8B036C5E5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
