@@ -4,7 +4,7 @@
 		<Authors>Tripp'n Technology, LLC.</Authors>
 		<Company>$(Authors)</Company>
 		<ContinuousIntegrationBuild>True</ContinuousIntegrationBuild>
-		<Copyright>Copyright 2025 $(Authors)</Copyright>
+		<Copyright>Copyright 2026 $(Authors)</Copyright>
 		<DebugType>embedded</DebugType>
 		<Description>TNT Plug-in Manager</Description>
 		<GenerateDocumentationFile>True</GenerateDocumentationFile>
@@ -17,11 +17,11 @@
     <TargetFramework>net9.0-windows</TargetFramework>
 		<Title>TNT Plug-in Manager</Title>
 		<UseWindowsForms>true</UseWindowsForms>
-		<Version>2.0.2</Version>
+		<Version>2.0.3</Version>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="TNT.Utilities" Version="2.1.1" />
+		<PackageReference Include="TNT.Utilities" Version="3.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
