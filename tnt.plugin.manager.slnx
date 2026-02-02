@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/Tests/">
+    <Project Path="Tests/Data/Data.csproj" />
+    <Project Path="Tests/PluginManagerTest/PluginManagerTest.csproj" />
+    <Project Path="Tests/Plugins/Plugins.csproj" />
+  </Folder>
+  <Project Path="NUnitTests/NUnitTests.csproj" />
+  <Project Path="TNT.Plugin.Manager/TNT.Plugin.Manager.csproj" />
+</Solution>
